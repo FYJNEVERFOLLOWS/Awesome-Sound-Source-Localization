@@ -12,14 +12,18 @@
       - [RNN & LSTM & GRU](#rnn--lstm--gru)
       - [CRNN](#crnn)
       - [Attention](#attention)
-      - [GAN](#gan)
-    - [Phase reconstruction](#phase-reconstruction)
+      - [Encoder-decoder neural networks](#encoder-decoder-neural-networks)
     - [Learning strategy](#learning-strategy)
       - [Loss function](#loss-function)
+        - [MSE](#mse)
+        - [Cross entropy](#cross-entropy)
       - [Multi-task learning](#multi-task-learning)
       - [Semi-supervised](#semi-supervised)
     - [Other improvements](#other-improvements)
-    - [SSL + Separation](#ssl--separation)
+    - [SSL+](#ssl)
+      - [SSL + Separation](#ssl--separation)
+      - [Speech Enhancement + SSL](#speech-enhancement--ssl)
+      - [SSL + Speaker Recognition](#ssl--speaker-recognition)
   - [Tools](#tools)
       - [Framework](#framework)
       - [Audio feature extraction](#audio-feature-extraction)
@@ -27,8 +31,6 @@
   - [Datasets](#datasets)
       - [Sound source localization datasets (in no particular order)](#sound-source-localization-datasets-in-no-particular-order)
       - [Augmentation noise sources (sorted by usage frequency in paper)](#augmentation-noise-sources-sorted-by-usage-frequency-in-paper)
-  - [SOTA results](#sota-results)
-      - [STOA results in dataset by University of Edinburgh. The following methods are all trained by "trainset_28spk" and tested by common testset. ("F" denotes frequency-domain and "T" is time-domain.)](#stoa-results-in-dataset-by-university-of-edinburgh-the-following-methods-are-all-trained-by-trainset_28spk-and-tested-by-common-testset-f-denotes-frequency-domain-and-t-is-time-domain)
   - [Learning materials](#learning-materials)
       - [Book or thesis](#book-or-thesis)
       - [Video](#video)
@@ -38,7 +40,7 @@
 
 This is a curated list of Awesome Sound Source Localization tutorials, papers, libraries, datasets, tools, scripts and results. The purpose of this repo is to organize the world’s resources for Sound Source Localization, and make them universally accessible and useful.
 
-To add items to this page, simply send a pull request.
+To add items to this page, you are welcomed to simply send a pull request.
 
 ## Publications
 
@@ -46,56 +48,71 @@ To add items to this page, simply send a pull request.
 * A Survey of Sound Source Localization with Deep Learning Methods, 2021 [[paper]](https://arxiv.org/abs/2109.03465)
 
 ### Databases
-* SLoClas: A Database for Joint Sound Localization and Classification, 2021 [[paper]](https://arxiv.org/abs/2108.02539)
+* SLoClas: A Database for Joint Sound Localization and Classification, 2021 [[paper]](https://arxiv.org/abs/2108.02539) [[note]](https://zhuanlan.zhihu.com/p/433298840)
 * The LOCATA Challenge: Acoustic Source Localization and Tracking, TASLP 2020 [[paper]](https://arxiv.org/abs/1909.01008)
 
 ### Network design
 #### MLP
-  * Deep Neural Networks for Multiple Speaker Detection and Localization [[paper]](https://arxiv.org/pdf/1711.11565.pdf) [[code]]()
+  * Deep Neural Networks for Multiple Speaker Detection and Localization [[paper]](https://arxiv.org/pdf/1711.11565.pdf) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/413083178)
 
 #### CNN
-  * Deep Neural Networks for Multiple Speaker Detection and Localization, ICRA 2018 [[paper]](https://arxiv.org/pdf/1711.11565.pdf)
+  * Deep Neural Networks for Multiple Speaker Detection and Localization, ICRA 2018 [[paper]](https://arxiv.org/pdf/1711.11565.pdf) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/413083178)
   * Joint Localization and Classification of Multiple Sound Sources Using a Multi-task Neural Network, Interspeech2018 [[paper]](https://www.isca-speech.org/archive_v0/Interspeech_2018/pdfs/1269.pdf)
-  * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962)
-  * Broadband DOA estimation using Convolutional neural networks trained with noise signals, 2017 [[paper]](https://arxiv.org/abs/1705.00919)
-  * Multi-Speaker DOA Estimation Using Deep Convolutional Networks Trained with Noise Signals, JSTSP 2019 [[paper]](https://arxiv.org/abs/1807.11722)
-  * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434)
+  * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm)
+  * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/426644156)
+  * Broadband DOA estimation using Convolutional neural networks trained with noise signals, 2017 [[paper]](https://arxiv.org/abs/1705.00919) [[note]](https://zhuanlan.zhihu.com/p/427013456)
+  * Multi-Speaker DOA Estimation Using Deep Convolutional Networks Trained with Noise Signals, JSTSP 2019 [[paper]](https://arxiv.org/abs/1807.11722) [[note]](https://zhuanlan.zhihu.com/p/429217156)
+  * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434) [[note]](https://zhuanlan.zhihu.com/p/447494486)
 
 #### RNN & LSTM & GRU
-  * Time Difference of Arrival Estimation of Speech Signals Using Deep Neural Networks with Integrated Time-frequency Masking, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682574)
+  * Time Difference of Arrival Estimation of Speech Signals Using Deep Neural Networks with Integrated Time-frequency Masking, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682574) [[note]](https://zhuanlan.zhihu.com/p/407709624)
   
 #### CRNN
-  * Direction of arrival estimation for multiple sound sources using convolutional recurrent neural network, EUSIPCO 2018 [[paper]](https://arxiv.org/abs/1710.10059)
-  * Sound Event Localization and Detection of Overlapping Sources Using Convolutional Recurrent Neural Networks, JSTSP 2018 [[paper]](https://arxiv.org/abs/1807.00129)
+  * Direction of arrival estimation for multiple sound sources using convolutional recurrent neural network, EUSIPCO 2018 [[paper]](https://arxiv.org/abs/1710.10059) [[note]](https://zhuanlan.zhihu.com/p/447493389)
+  * Sound Event Localization and Detection of Overlapping Sources Using Convolutional Recurrent Neural Networks, JSTSP 2018 [[paper]](https://arxiv.org/abs/1807.00129) [[note]](https://zhuanlan.zhihu.com/p/447495306)
+  * CRNN-Based Multiple DoA Estimation Using Acoustic Intensity Features for Ambisonics Recordings, 2019 [[paper]](https://hal.inria.fr/hal-01839883/file/Perotin-2019-CRNN-based_multiple_DoA_estimation.pdf) [[note]](https://zhuanlan.zhihu.com/p/447506072)
 
 #### Attention
 
-  * Channel-attention dense u-net for multichannel speech enhancement, ICASSP 2020 [[paper]](https://arxiv.org/pdf/2001.11542.pdf)
-  * T-GSA: transformer with gaussian-weighted self-attention for speech enhancement, ICASSP 2020 [[paper]](https://arxiv.org/pdf/1910.06762.pdf)
+  * A combination of various neural networks for sound event localization and detection, DCASE 2021 Challenge 
+  * Sound event localization and detection using cross-modal attention and parameter sharing, DCASE 2021 Challenge
 
-#### GAN
-  * PAGAN: a phase-adapted generative adversarial networks for speech enhancement, ICASSP 2020 [[paper](https://ieeexplore.ieee.org/document/9054256) 
-  * Time-frequency masking-based speech enhancement using generative adversarial network, ICASSP 2018 [[paper]](http://150.162.46.34:8080/icassp2018/ICASSP18_USB/pdfs/0005039.pdf)
-  * SEGAN: speech enhancement generative adversarial network, Interspeech 2017 [[paper]](https://arxiv.org/pdf/1703.09452.pdf) 
-### Phase reconstruction
-* Phase reconstruction based on recurrent phase unwrapping with deep neural networks, ICASSP 2020 [[paper]](https://arxiv.org/pdf/2002.05832.pdf)
-* PAGAN: a phase-adapted generative adversarial networks for speech enhancement, ICASSP 2020 [[paper](https://ieeexplore.ieee.org/document/9054256)
-* Invertible dnn-based nonlinear time-frequency transform for speech enhancement, ICASSP 2020 [[paper]](https://arxiv.org/pdf/1911.10764.pdf)
-* Phase-aware speech enhancement with deep complex u-net, ICLR 2019 [[paper]](https://openreview.net/pdf?id=SkeRTsAcYm) [[code]](https://github.com/sweetcocoa/DeepComplexUNetPyTorch)
+#### Encoder-decoder neural networks
+  * PILOT: introducing Transformers for probabilistic sound event localization, Interspeech 2021 [[paper]](https://www.isca-speech.org/archive/pdfs/interspeech_2021/schymura21_interspeech.pdf) 
+
 ### Learning strategy
 #### Loss function
-  * Speech denoising with deep feature losses, Interspeech 2019 [[paper]](https://arxiv.org/pdf/1806.10522.pdf)
-  * End-to-end multi-task denoising for joint sdr and pesq optimization, Arxiv 2019 [[paper]](https://arxiv.org/pdf/1901.09146.pdf)
+##### MSE
+  * Deep Neural Networks for Multiple Speaker Detection and Localization, ICRA 2018 [[paper]](https://arxiv.org/pdf/1711.11565.pdf) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/413083178)
+  * Joint Localization and Classification of Multiple Sound Sources Using a Multi-task Neural Network, Interspeech2018 [[paper]](https://www.isca-speech.org/archive_v0/Interspeech_2018/pdfs/1269.pdf)
+  * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm)
+  * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/426644156)
+  * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434) [[note]](https://zhuanlan.zhihu.com/p/447494486)
+##### Cross entropy
+  * Broadband DOA estimation using Convolutional neural networks trained with noise signals, 2017 [[paper]](https://arxiv.org/abs/1705.00919) [[note]](https://zhuanlan.zhihu.com/p/427013456)
+  * Multi-Speaker DOA Estimation Using Deep Convolutional Networks Trained with Noise Signals, JSTSP 2019 [[paper]](https://arxiv.org/abs/1807.11722) [[note]](https://zhuanlan.zhihu.com/p/429217156)
+  * SLoClas: A Database for Joint Sound Localization and Classification, 2021 [[paper]](https://arxiv.org/abs/2108.02539) [[note]](https://zhuanlan.zhihu.com/p/433298840)
 #### Multi-task learning
   * Joint Localization and Classification of Multiple Sound Sources Using a Multi-task Neural Network [[paper]](https://www.isca-speech.org/archive_v0/Interspeech_2018/pdfs/1269.pdf)
-  * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434)
+  * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434) [[note]](https://zhuanlan.zhihu.com/p/447494486)
 #### Semi-supervised
-  * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655)
-
+  * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm)
+  * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/426644156)
 ### Other improvements
-* Improving robustness of deep learning based monaural speech enhancement against processing artifacts, ICASSP 2020 [[paper]](https://ieeexplore.ieee.org/document/9054145)
-### SSL + Separation
+* MIMO-DoAnet: Multi-channel Input and Multiple Outputs DoA Network with Unknown Number of Sound Sources, Interspeech 2022 [[paper]](https://arxiv.org/pdf/2207.07307) [[code]](https://github.com/TJU-haoran/VCTK-16k-simulated)
+* Iterative Sound Source Localization for Unknown Number of Sources, Interspeech 2022 [[paper]](https://arxiv.org/pdf/2206.12273) [[code]](https://github.com/FYJNEVERFOLLOWS/ISSL)
 
+### SSL+
+#### SSL + Separation
+  * Multi-Microphone Speaker Separation based on Deep DOA Estimation, EUSIPCO 2019 [[paper]](https://ieeexplore.ieee.org/document/8903121) [[note]](https://zhuanlan.zhihu.com/p/465365146)
+  * An End-to-End Deep Learning Framework For Multiple Audio Source Separation And Localization, ICASSP 2022 [[paper]](https://ieeexplore.ieee.org/document/9746950) [[note]](https://zhuanlan.zhihu.com/p/518440711)
+
+
+#### Speech Enhancement + SSL
+  * Time Difference of Arrival Estimation of Speech Signals Using Deep Neural Networks with Integrated Time-frequency Masking, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682574) [[note]](https://zhuanlan.zhihu.com/p/407709624)
+  * Robust DOA Estimation Based on Convolutional Neural Network and Time-Frequency Masking, Interspeech 2019 [[paper]](https://www.isca-speech.org/archive/pdfs/interspeech_2019/zhang19j_interspeech.pdf) [[note]](https://zhuanlan.zhihu.com/p/497216650)
+#### SSL + Speaker Recognition
+  * Multi-task Neural Network for Robust Multiple Speaker Embedding Extraction, Interspeech 2021 [[paper]](https://www.isca-speech.org/archive/pdfs/interspeech_2021/he21_interspeech.pdf) [[note]](https://zhuanlan.zhihu.com/p/500993159)
 
 ## Tools
 #### Framework
@@ -115,6 +132,7 @@ To add items to this page, simply send a pull request.
 | [LPS](https://github.com/nanahou/LPS_extraction) | Python | Extract log-power-spectrum/magnitude spectrum/log-magnitude spectrum/Cepstral mean and variance normalization. |
 | [MFCC](https://github.com/jameslyons/python_speech_features) ![GitHub stars](https://img.shields.io/github/stars/jameslyons/python_speech_features?style=social) | Python | This library provides common speech features for ASR including MFCCs and filterbank energies. |
 | [pyAudioAnalysis](https://github.com/tyiannak/pyAudioAnalysis) ![GitHub stars](https://img.shields.io/github/stars/tyiannak/pyAudioAnalysis?style=social) | Python | Python Audio Analysis Library: Feature Extraction, Classification, Segmentation and Applications. |
+| [GCC & GCC-Fbank](https://github.com/idiap/nnsslm) | Python | Python code to extract features: GCC coefficients and GCCFB. |
 
 #### Audio data augmentation
 
@@ -130,14 +148,11 @@ To add items to this page, simply send a pull request.
 ## Datasets
 #### Sound source localization datasets (in no particular order) 
 
-| Name | Utterances | Speakers | Language | Pricing | Additional information |
-| ---- | ---------- | -------- | -------- | ------- | ---------------------- |
-| [Dataset by University of Edinburgh](https://datashare.is.ed.ac.uk/handle/10283/1942) (2016)| 35K+ | 86 | English | Free | Noisy speech database for training speech enhancement algorithms and TTS models. |
-| [TIMIT](https://catalog.ldc.upenn.edu/LDC93S1) (1993)| 6K+ | 630 | English | $250.00 | The TIMIT corpus of read speech is one of the earliest speaker recognition datasets. |
-| [VCTK](https://homepages.inf.ed.ac.uk/jyamagis/page3/page58/page58.html) (2009) | 43K+ | 109 | English | Free | Most were selected from a newspaper plus the Rainbow Passage and an elicitation paragraph intended to identify the speaker's accent. |
-| [WSJ0](https://catalog.ldc.upenn.edu/LDC93S6A) (1993) | -- | 149 | English | $1500 | The WSJ database was generated from a machine-readable corpus of Wall Street Journal news text. |
-| [LibriSpeech](http://www.openslr.org/12) (2015) | 292K | 2K+ | English | Free | Large-scale (1000 hours) corpus of read English speech. |
-| [CHiME series](https://chimechallenge.github.io/chime6/) (~2020) | -- | -- | English | Free | The database is published by CHiME Speech Separation and Recognition Challenge. | 
+| Name | Language | Pricing | Additional information |
+| ---- | -------- | ------- | ---------------------- |
+| [SSLR](https://www.idiap.ch/en/dataset/sslr) (2018) | English | Free |  A collection of real robot audio recordings for the development and evaluation of sound source localization methods. |
+| [LOCATA](https://www.locata.lms.tf.fau.de/datasets/) (2018) | English | Free |  |
+| [SLoClas](https://bidishasharma.github.io/SLoClass/) (2021) | English | Free |  |
 
 #### Augmentation noise sources (sorted by usage frequency in paper)
 
@@ -146,7 +161,7 @@ To add items to this page, simply send a pull request.
 | [DEMAND](https://zenodo.org/record/1227121#.Xv2VsZP7RhE) (2013) | 18 | Free | Diverse Environments Multichannel Acoustic Noise Database provides a set of recordings that allow testing of algorithms using real-world noise in a variety of settings. |
 | [115 Noise](http://staff.ustc.edu.cn/~jundu/The%20team/yongxu/demo/115noises.html) (2015)| 115 | Free | The noise bank for simulate noisy data with clean speech. For N1-N100 noises, they were collected by Guoning Hu and the other 15 home-made noise types by USTC.|
 | [NoiseX-92](http://www.speech.cs.cmu.edu/comp.speech/Section1/Data/noisex.html) (1996)| 15 | Free | Database of recording of various noises available on 2 CDROMs. |
-
+<!-- 
 ## SOTA results
 #### STOA results in [dataset by University of Edinburgh](https://datashare.is.ed.ac.uk/handle/10283/1942). The following methods are all trained by "trainset_28spk" and tested by common testset. ("F" denotes frequency-domain and "T" is time-domain.)
 
@@ -167,25 +182,16 @@ To add items to this page, simply send a pull request.
 | [Complex U-net](https://openreview.net/pdf?id=SkeRTsAcYm) | INTERSPEECH 2019 | F | 3.24 | 4.34 | 4.10 | 3.81 | 16.85 | -- |
 | [Complex U-net reimplemented](https://arxiv.org/pdf/1901.09146.pdf) | arxiv 2019 | F | 2.87 | 4.12 | 3.47 | 3.51 | 9.96 | -- |
 | [SDR-PRSQ](https://arxiv.org/pdf/1901.09146.pdf) | arxiv 2019 | F | 3.01 | 4.09 | 3.54 | 3.55 | 10.44 |
-| [RHRnet](https://arxiv.org/pdf/1904.07294.pdf) | ICASSP 2020 | T | 3.20 | 4.37 | 4.02 | 3.82 | 14.71 | 0.98 |
+| [RHRnet](https://arxiv.org/pdf/1904.07294.pdf) | ICASSP 2020 | T | 3.20 | 4.37 | 4.02 | 3.82 | 14.71 | 0.98 | -->
 
 ## Learning materials
 #### Book or thesis
-  * A Study on WaveNet, GANs and General CNNRNN Architectures, 2019 [[link]](http://www.diva-portal.org/smash/get/diva2:1355369/FULLTEXT01.pdf)
   * Deep learning: method and applications, 2016 [[link]](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/DeepLearning-NowPublishing-Vol7-SIG-039.pdf)
   * Deep learning by Ian Goodfellow and Yoshua Bengio and Aaron Courville, 2016 [[link]](https://www.deeplearningbook.org/)
-  * Robust automatic speech recognition by Jinyu Li and Li Deng, 2015 [[link]](https://www.sciencedirect.com/book/9780128023983/robust-automatic-speech-recognition)
 
 #### Video
   * CCF speech seminar 2020 [[link]](https://www.bilibili.com/video/BV1MV411k7iJ)
-  * Real-time Single-channel Speech Enhancement with Recurrent Neural Networks by Microsoft Research, 2019 [[link]](https://www.youtube.com/watch?v=r6Ijqo5E3I4)
   * Deep learning in speech by Hongyi Li, 2019 [[link]](https://www.youtube.com/playlist?list=PLJV_el3uVTsOK_ZK5L0Iv_EQoL1JefRL4)
-  * High-Accuracy Neural-Network Models for Speech Enhancement, 2017 [[link]](https://www.microsoft.com/en-us/research/video/high-accuracy-neural-network-models-speech-enhancement/)
-  * DNN-Based Online Speech Enhancement Using Multitask Learning and Suppression Rule Estimation, 2015 [[link]](https://www.microsoft.com/en-us/research/video/dnn-based-online-speech-enhancement-using-multitask-learning-and-suppression-rule-estimation/)
-  * Microphone array signal processing: beyond the beamformer,2011 [[link]](https://www.microsoft.com/en-us/research/video/microphone-array-signal-processing-beyond-the-beamformer/)
 
 #### Slides
   * Deep learning in speech by Hongyi Li, 2019 [[link]](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html)
-  * Learning-based approach to speech enhancement and separation (INTERSPEECH tutorial, 2016) [[link]](https://github.com/nanahou/Awesome-Speech-Enhancement/blob/master/learning-materials/2016-interspeech-tutorial.pdf)
-  * Deep learning for speech/language processing (INTERSPEECH tutorial by Li Deng, 2015) [[link]](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/interspeech-tutorial-2015-lideng-sept6a.pdf)
-  * Speech enhancement algorithms (Stanford University, 2013) [[link]](https://ccrma.stanford.edu/~njb/teaching/sstutorial/part1.pdf)
