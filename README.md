@@ -40,7 +40,7 @@
 
 This is a curated list of Awesome Sound Source Localization tutorials, papers, libraries, datasets, tools, scripts and results. The purpose of this repo is to organize the world’s resources for Sound Source Localization, and make them universally accessible and useful.
 
-To add items to this page, you are welcomed to simply send a pull request.
+To add items to this page, you are welcomed to simply issue a Pull Request.
 
 ## Publications
 
