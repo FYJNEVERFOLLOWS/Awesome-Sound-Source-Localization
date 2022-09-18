@@ -45,7 +45,7 @@ To add items to this page, you are welcomed to simply issue a Pull Request.
 ## Publications
 
 ### Survey
-* A Survey of Sound Source Localization with Deep Learning Methods, 2021 [[paper]](https://arxiv.org/abs/2109.03465)
+* A Survey of Sound Source Localization with Deep Learning Methods, The Journal of the Acoustical Society of America, 2022 [[paper]](https://arxiv.org/abs/2109.03465)
 
 ### Databases
 * SLoClas: A Database for Joint Sound Localization and Classification, 2021 [[paper]](https://arxiv.org/abs/2108.02539) [[note]](https://zhuanlan.zhihu.com/p/433298840)
@@ -69,7 +69,7 @@ To add items to this page, you are welcomed to simply issue a Pull Request.
   
 #### CRNN
   * Direction of arrival estimation for multiple sound sources using convolutional recurrent neural network, EUSIPCO 2018 [[paper]](https://arxiv.org/abs/1710.10059) [[note]](https://zhuanlan.zhihu.com/p/447493389)
-  * Sound Event Localization and Detection of Overlapping Sources Using Convolutional Recurrent Neural Networks, JSTSP 2018 [[paper]](https://arxiv.org/abs/1807.00129) [[note]](https://zhuanlan.zhihu.com/p/447495306)
+  * Sound Event Localization and Detection of Overlapping Sources Using Convolutional Recurrent Neural Networks, JSTSP 2018 [[paper]](https://ieeexplore.ieee.org/document/8567942) [[note]](https://zhuanlan.zhihu.com/p/447495306) [[code]](https://github.com/sharathadavanne/seld-net)
   * CRNN-Based Multiple DoA Estimation Using Acoustic Intensity Features for Ambisonics Recordings, 2019 [[paper]](https://hal.inria.fr/hal-01839883/file/Perotin-2019-CRNN-based_multiple_DoA_estimation.pdf) [[note]](https://zhuanlan.zhihu.com/p/447506072)
 
 #### Attention
