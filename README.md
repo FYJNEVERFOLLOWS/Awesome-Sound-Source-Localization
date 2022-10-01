@@ -99,8 +99,8 @@ To add items to this page, you are welcomed to simply issue a Pull Request.
   * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm)
   * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/426644156)
 ### Other improvements
-* MIMO-DoAnet: Multi-channel Input and Multiple Outputs DoA Network with Unknown Number of Sound Sources, Interspeech 2022 [[paper]](https://arxiv.org/pdf/2207.07307) [[code]](https://github.com/TJU-haoran/VCTK-16k-simulated)
-* Iterative Sound Source Localization for Unknown Number of Sources, Interspeech 2022 [[paper]](https://arxiv.org/pdf/2206.12273) [[code]](https://github.com/FYJNEVERFOLLOWS/ISSL)
+* MIMO-DoAnet: Multi-channel Input and Multiple Outputs DoA Network with Unknown Number of Sound Sources, Interspeech 2022 [[paper]](https://www.isca-speech.org/archive/interspeech_2022/yin22b_interspeech.html) [[code]](https://github.com/TJU-haoran/VCTK-16k-simulated)
+* Iterative Sound Source Localization for Unknown Number of Sources, Interspeech 2022 [[paper]](https://www.isca-speech.org/archive/interspeech_2022/fu22c_interspeech.html) [[code]](https://github.com/FYJNEVERFOLLOWS/ISSL)
 
 ### SSL+
 #### SSL + Separation
