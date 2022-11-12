@@ -18,7 +18,7 @@
         - [MSE](#mse)
         - [Cross entropy](#cross-entropy)
       - [Multi-task learning](#multi-task-learning)
-      - [Semi-supervised](#semi-supervised)
+      - [Semi-supervised learning](#semi-supervised-learning)
     - [Other improvements](#other-improvements)
     - [SSL+](#ssl)
       - [SSL + Separation](#ssl--separation)
@@ -95,7 +95,7 @@ To add items to this page, you are welcomed to simply issue a Pull Request.
 #### Multi-task learning
   * Joint Localization and Classification of Multiple Sound Sources Using a Multi-task Neural Network [[paper]](https://www.isca-speech.org/archive_v0/Interspeech_2018/pdfs/1269.pdf)
   * Robust Source Counting and DOA Estimation Using Spatial Pseudo-Spectrum and Convolutional Neural Network, TASLP 2020 [[paper]](https://ieeexplore.ieee.org/document/9178434) [[note]](https://zhuanlan.zhihu.com/p/447494486)
-#### Semi-supervised
+#### Semi-supervised learning
   * Adaptation of Multiple Sound Source Localization Neural Networks with Weak Supervision and Domain-adversarial Training, ICASSP 2019 [[paper]](https://ieeexplore.ieee.org/document/8682655) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm)
   * Neural Network Adaptation and Data Augmentation for Multi-Speaker Direction-of-Arrival Estimation, TASLP 2021 [[paper]](https://ieeexplore.ieee.org/document/9357962) [[code]](https://github.com/FYJNEVERFOLLOWS/nnsslm) [[note]](https://zhuanlan.zhihu.com/p/426644156)
 ### Other improvements
