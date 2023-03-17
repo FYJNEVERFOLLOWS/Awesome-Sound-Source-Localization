@@ -9,7 +9,7 @@
     - [Network design](#network-design)
       - [MLP](#mlp)
       - [CNN](#cnn)
-      - [RNN & LSTM & GRU](#rnn--lstm--gru)
+      - [RNN \& LSTM \& GRU](#rnn--lstm--gru)
       - [CRNN](#crnn)
       - [Attention](#attention)
       - [Encoder-decoder neural networks](#encoder-decoder-neural-networks)
@@ -106,6 +106,8 @@ To add items to this page, you are welcomed to simply issue a Pull Request.
 #### SSL + Separation
   * Multi-Microphone Speaker Separation based on Deep DOA Estimation, EUSIPCO 2019 [[paper]](https://ieeexplore.ieee.org/document/8903121) [[note]](https://zhuanlan.zhihu.com/p/465365146)
   * An End-to-End Deep Learning Framework For Multiple Audio Source Separation And Localization, ICASSP 2022 [[paper]](https://ieeexplore.ieee.org/document/9746950) [[note]](https://zhuanlan.zhihu.com/p/518440711)
+  * DBnet: Doa-Driven Beamforming Network for end-to-end Reverberant Sound Source Separation, ICASSP 2021 [[paper]](https://ieeexplore.ieee.org/document/9414187)
+  * Blind Speech Separation Through Direction of Arrival Estimation Using Deep Neural Networks with a Flexibility on the Number of Speakers, MMSP 2022 [[paper]](https://ieeexplore.ieee.org/document/9949050)
 
 
 #### Speech Enhancement + SSL
